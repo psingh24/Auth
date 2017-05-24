@@ -74,6 +74,7 @@ function googleSignIn() {
 			  var user = result.user;
 			  // ...
 			  console.log(user.displayName)
+			  $(".name").html("<h2>Hi "+user.displayName+"!</h2>")
 			}).catch(function(error) {
 			  // Handle Errors here.
 			  var errorCode = error.code;
@@ -94,6 +95,7 @@ function googleSignIn() {
 		  var user = result.user;
 
 		  console.log(user.displayName)
+		  $(".name").html("<h2>Hi "+user.displayName+"!</h2>")
 		  // ...
 		}).catch(function(error) {
 		  // Handle Errors here.
@@ -115,12 +117,11 @@ $(".signin").on("click", function() {
 
 	if (method === "google") {
 		googleSignIn();
-		$(".name").html("<h2>Hi "+user.displayName+"!</h2>")
-
+		
 	}
 	else if(method === "facebook") {
 		facebookSignIn();
-		$(".name").html("<h2>Hi "+user.displayName+"!</h2>")
+		
 	}
 	
 })
