@@ -60,7 +60,9 @@
     messagingSenderId: "937793237300"
   };
   firebase.initializeApp(config);
+var database = firebase.database();
 
+var ref = database.ref("user")
 
   //instance of the goggle provider object
   var google = new firebase.auth.GoogleAuthProvider();
@@ -75,6 +77,11 @@ function googleSignIn() {
 			  // ...
 			  console.log(user.displayName)
 			  $(".name").html("<h2>Hi "+user.displayName+"!</h2>")
+
+			    var data = {
+		  	name: user.displayName
+		  }
+		  ref.push(data)
 			}).catch(function(error) {
 			  // Handle Errors here.
 			  var errorCode = error.code;
@@ -96,6 +103,11 @@ function googleSignIn() {
 
 		  console.log(user.displayName)
 		  $(".name").html("<h2>Hi "+user.displayName+"!</h2>")
+
+		  var data = {
+		  	name: user.displayName
+		  }
+		  ref.push(data)
 		  // ...
 		}).catch(function(error) {
 		  // Handle Errors here.
