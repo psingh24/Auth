@@ -31,14 +31,13 @@
 	<div class="row">
 	<div class="col-md-12 text-center"><h3>Please Login In</h3></div>
 	</div>
-	<div class="row">
-	<div class="col-md-12 text-center"><input type="text" class="email"></div>
-	</div>
-	<div class="row">
-	<div class="col-md-12 text-center"><input type="text" class="password"></div>
-	</div>
+	
 	<div class="row">
 	<div class="col-md-12 text-center"><button type="submit" data="google" class="signin btn btn-danger"><i class="fa fa-google-plus" aria-hidden="true"></i> Sign-In with Google</button><button type="submit" data="facebook" class="signin btn btn-primary"><i class="fa fa fa-facebook" aria-hidden="true"></i> Sign-In with facebook</button></div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12 text-center"><div class="name"></div></div>
 	</div>
 </div>
 
@@ -116,9 +115,12 @@ $(".signin").on("click", function() {
 
 	if (method === "google") {
 		googleSignIn();
+		$("name").html("<h2>Hi "+user.displayName+"!</h2>")
+
 	}
 	else if(method === "facebook") {
-		facebookSignIn()
+		facebookSignIn();
+		$("name").html("<h2>Hi "+user.displayName+"!</h2>")
 	}
 	
 })
